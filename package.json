@@ -1,0 +1,14 @@
+{
+  "name": "trade-fish",
+  "version": "0.1.0",
+  "engines": {
+    "node": "4.x"
+  },
+  "scripts": {
+    "start": "app.js"
+  },
+  "dependencies": {
+      "q": "x"
+  },
+  "bundledDependencies": []
+}

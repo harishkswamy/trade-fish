@@ -1,0 +1,90 @@
+[
+    {
+        "name": "Ivy - Market View",
+        "symbols": ["SPY","DIA","QQQ","IWM","BND","DBC","VEU","VTI","VNQ","RSP","HYMB"]
+    },
+    {
+        "name": "Ivy - US Market Cap",
+        "symbols": ["VTI","VO","VB","IWC"]
+    },
+    {
+        "name": "Ivy - Foreign",
+        "symbols": ["GWX","VEU","VWO","EWX"]
+    },
+    {
+        "name": "Ivy - Bonds",
+        "symbols": ["BND","BWX","ESD","TIP","HYLD"]
+    },
+    {
+        "name": "Ivy - Commodities",
+        "symbols": ["DBA","DBB","DBE","DBP","WOOD","SGG"]
+    },
+    {
+        "name": "Ivy - REITs",
+        "symbols": ["VNQ","RWX","IGF"]
+    },
+    {
+        "name": "Vanguard Market View",
+        "symbols": ["VWOB","VTI","VEU","VSS","VEA","VWO","VGK","VPL","VNQ","VNQI","BNDX","VXUS","VT"]
+    },
+    {
+        "name": "Vanguard US Equity",
+        "symbols": ["VIG","VXF","VUG","VYM","VV","MGC","MGK","MGV","VO","VOT","VOE","VOO","VB","VBK","VBR","VTI","VTV"]
+    },
+    {
+        "name": "Vanguard Sectors",
+        "symbols": ["VCR","VDC","VDE","VFH","VHT","VIS","VGT","VAW","VNQ","VOX","VPU"]
+    },
+    {
+        "name": "Vanguard Bonds",
+        "symbols": ["EDV","BIV","VCIT","VGIT","BLV","VCLT","VGLT","VMBS","BSV","VCSH","VGSH","VTIP","BND"]
+    },
+    {
+        "name": "Chase HSA",
+        "symbols": ["EAGMX","ONUAX","ADFIX","BMOAX","PTTDX","PFILX","PRRDX","MHCAX","PCBLX","TPINX","PSBLX","PCWSX","HLEIX","PMBSX","OLGAX","ICAUX","TGVAX","RYPRX","MDIIX","OSGIX","SGQAX","MDSKX","CSGEX","PAREX"]
+    },
+    {
+        "name": "Schwab US Equity",
+        "symbols": ["SCHB","SCHX","SCHV","SCHG","SCHD","SCHM","SCHA","SLYV","MDYG","XLG","SPLV","SPHB","DGRW","FNDB","FNDA","FNDX","RPV","RZG","RPG","SDOG","RSP","NOBL","DWAS","PDP","PKW","CVY","CSM"]
+    },
+    {
+        "name": "Schwab Foreign Equity",
+        "symbols": ["SCHF","SCHE","SCHC","FEU","FNDF","CWI","GAL","IDLV","DWX","EELV","FNDC","DXGE","FNDE","GMF","EDIV","IDOG","PID","IHDG","DXJS","EUSC","GXC","EWX","RLY","FRN","PIZ","HAO","PIN","PIE"]
+    },
+    {
+        "name": "Schwab Bonds",
+        "symbols": ["SCHZ","SCHP","SCHO","SCHR","TLO","ZROZ","CORP","SHM","BSCM","BSCK","BSCF","BSCO","BSCL","BSCG","BSCH","BSCI","BSCJ","TFI","BWZ","CWB","BSJF","BSJG","BSJH","BSJI","BSJJ","BSJK","DSUM","HYMB","IBND","PCY","PHB","BWX","HYS","BKLN","SRLN"]
+    },
+    {
+        "name": "Schwab Sector",
+        "symbols": ["RYF","RHS","RYT","GNR","RYE","RYH","RCD","SGDM","PBS","CGW","MLPA"]
+    },
+    {
+        "name": "Schwab Speciality",
+        "symbols": ["FXY","FXE","FXC","FXA","PGX","USDU","VRP","MNA","WDTI","QAI"]
+    },
+    {
+        "name": "Schwab Real Assets",
+        "symbols": ["SCHH","SIVR","SGOL","RWO","PALL","PPLT","GLTR","USL","USCI","UGA","UNL"]
+    },
+    {
+        "name": "MM US Equity",
+        "symbols": ["MMIZX","MDKZX","MCJZX","MFUZX","MFVZX","MBCZX","MEFZX","MSVZX","MSGZX"]
+    },
+    {
+        "name": "MM Foreign Equity",
+        "symbols": ["MKRZX","MPZSX","OIGIX"]
+    },
+    {
+        "name": "MM REIT",
+        "symbols": ["OREIX"]
+    },
+    {
+        "name": "MM Commodity",
+        "symbols": ["PCRIX"]
+    },
+    {
+        "name": "MM Bonds",
+        "symbols": ["MIPZX","NOBOX","MCZZX","MPHZX"]
+    }
+]
