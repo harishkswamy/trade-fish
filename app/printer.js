@@ -15,10 +15,10 @@ class PulseInstr {
         this.pctChg3Mo = this.instr.pctChange(lastMonths(3));
         this.pctChg6Mo = this.instr.pctChange(lastMonths(6));
         this.pctChg12Mo = this.instr.pctChange(lastMonths(12));
+        this.avgPctChg = (4 * this.pctChgMtd + 3 * this.pctChg3Mo + 2 * this.pctChg6Mo + this.pctChg12Mo) / 10;
         this.ma50 = this.instr.movingAvg(50);
         this.ma100 = this.instr.movingAvg(100);
         this.ma200 = this.instr.movingAvg(200);
-        this.avgPctChg = (4 * this.pctChgMtd + 3 * this.pctChg3Mo + 2 * this.pctChg6Mo + this.pctChg12Mo) / 10;
         this.avgMA = (this.ma50 + this.ma100 + this.ma200) / 3;
     }
     
