@@ -8,7 +8,6 @@
     "start": "app.js"
   },
   "dependencies": {
-      "q": "x"
   },
   "bundledDependencies": []
 }
