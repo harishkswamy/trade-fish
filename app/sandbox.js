@@ -1,4 +1,7 @@
-"use strict";
+/*
+ * @flow
+ */
+'use strict';
 
 let _fs = require('fs');
 let Yahoo = require('./yahoo.js');
@@ -15,3 +18,9 @@ Promise.all(JSON.parse(_fs.readFileSync(__dirname + '/portfolios.1.json', 'utf8'
         });
     }, Promise.resolve({name: b.name, symbols: []}));
 })).then((baskets) => console.log(JSON.stringify(baskets)));
+
+function x(n) {
+    return n * 23;
+}
+
+x('sd');

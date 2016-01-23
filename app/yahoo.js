@@ -1,4 +1,7 @@
-"use strict";
+/*
+ * @flow
+ */
+'use strict';
 
 let _http = require('http');
 let Http = {
@@ -39,7 +42,7 @@ module.exports = {
     quotes: function (symbol, startDate, endDate, attrs) {
         return Http.get(quoteOpts(symbol, 'd', startDate, endDate)).then(data => {
             let quotes = data.trim().split('\n');
-            quotes.shift(); // pop head off
+            quotes.shift(); // pop header off
 
             return quotes.map(q => {
                 let qAttrs = q.split(',');

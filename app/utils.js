@@ -1,4 +1,7 @@
-"use strict";
+/*
+ * @flow
+ */
+'use strict';
 
 let _fs = require('fs');
 let Yahoo = require('./yahoo.js');
