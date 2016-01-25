@@ -4,6 +4,9 @@ const _fs = require('fs');
 const Yahoo = require('./yahoo.js');
 const Quote = require('./quote.js');
 
+const appPath = __dirname + '/../../';
+const dataPath = appPath + '/data/';
+
 const stripTime = (dt) => new Date(dt.getFullYear(), dt.getMonth(), dt.getDate());
 const prevDate = (dt) => new Date(dt.getFullYear(), dt.getMonth(), dt.getDate() - 1);
 const nextDate = (dt) => new Date(dt.getFullYear(), dt.getMonth(), dt.getDate() + 1);
@@ -35,7 +38,7 @@ module.exports = class Instr {
     }
     
     get dataFilePath() {
-        return __dirname + '/data/' + this.symbol;
+        return dataPath + this.symbol;
     }
 
     set quotes(quotes) {

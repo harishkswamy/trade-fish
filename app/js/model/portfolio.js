@@ -1,7 +1,6 @@
 'use strict';
 
 const Instr = require('./instr.js');
-const Quote = require('./quote.js');
 
 module.exports = class Portfolio {
     constructor(portfolioCfg) {

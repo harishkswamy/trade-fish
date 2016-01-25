@@ -4,7 +4,7 @@
 'use strict';
 
 let _fs = require('fs');
-let Yahoo = require('./yahoo.js');
+let Yahoo = require('../model/yahoo.js');
 
 function widdle() {
     Promise.all(JSON.parse(_fs.readFileSync(__dirname + '/portfolios.1.json', 'utf8')).map((b) => {
