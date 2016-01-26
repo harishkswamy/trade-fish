@@ -21,19 +21,17 @@ const printHead = () => {
         );
 }
 const printPulse = (instr) => {
-    const iState = instr.state();
-
     console.log(
-        StrUtils.rpad(iState.symbol, 6),
-        StrUtils.rpad(iState.lastPrice >= iState.avgMa ? iState.rank : '', 4),
-        StrUtils.rpad(iState.lastDate.toLocaleDateString('en-US'), 10),
-        StrUtils.lpad(iState.lastPrice.toFixed(2), 7),
-        StrUtils.lpad(iState.avgMa.toFixed(2), 7),
-        StrUtils.lpad(iState.avgPctChg.toFixed(2), 7),
-        StrUtils.lpad(iState.pctChgMtd.toFixed(2), 7),
-        StrUtils.lpad(iState.pctChg3Mo.toFixed(2), 7),
-        StrUtils.lpad(iState.pctChg6Mo.toFixed(2), 7),
-        StrUtils.lpad(iState.pctChg12Mo.toFixed(2), 8)
+        StrUtils.rpad(instr.symbol, 6),
+        StrUtils.rpad(instr.lastPrice >= instr.avgMa ? instr.rank : '', 4),
+        StrUtils.rpad(instr.lastDate.toLocaleDateString('en-US'), 10),
+        StrUtils.lpad(instr.lastPrice.toFixed(2), 7),
+        StrUtils.lpad(instr.avgMa.toFixed(2), 7),
+        StrUtils.lpad(instr.avgPctChg.toFixed(2), 7),
+        StrUtils.lpad(instr.pctChgMtd.toFixed(2), 7),
+        StrUtils.lpad(instr.pctChg3Mo.toFixed(2), 7),
+        StrUtils.lpad(instr.pctChg6Mo.toFixed(2), 7),
+        StrUtils.lpad(instr.pctChg12Mo.toFixed(2), 8)
     );
 }
 const printPortfoioPulse = (portfolio) => {
@@ -45,7 +43,7 @@ const printPortfoioPulse = (portfolio) => {
     printHead();
     portfolio.instrs.forEach(instr => printPulse(instr));
 }
-const print = portfolios => portfolios.map(p => printPortfoioPulse(p));
+const print = portfolios => portfolios.map(p => printPortfoioPulse(p.state()));
 
 PulseBuilder.build()
     .then(print)
