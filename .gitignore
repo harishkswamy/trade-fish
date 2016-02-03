@@ -1,4 +1,4 @@
-app/data
+app/data/
 node_modules
 typings
 .vscode

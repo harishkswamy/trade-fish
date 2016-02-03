@@ -7,13 +7,18 @@ let _http = require('http');
 let Http = {
     get: function (opts) {
         return new Promise((resolve, reject) => {
-            var data = '';
-            let req = _http.request(opts, (response) => {
-                response.on('data', (chunk) => data += chunk);
-                response.on('error', (err) => reject(err));
-                response.on('end', () => response.statusCode === 200 ? resolve(data) : reject(data));
-            });
-            req.end();
+            try {
+                var data = '';
+                let req = _http.request(opts, (response) => {
+                    response.on('data', (chunk) => data += chunk);
+                    response.on('error', (err) => reject(err));
+                    response.on('end', () => response.statusCode === 200 ? resolve(data) : reject(data));
+                });
+                req.on('error', err => reject(err));
+                req.end();
+            } catch (err) {
+                reject(err);
+            }
         });
     }
 };
@@ -51,7 +56,7 @@ module.exports = {
                     .map((qa, idx) => idx === this.qtAttrs.date ? new Date(qa + 'T05:00:00') : Number(qa))
                     .filter((qa, idx) => !attrs || attrs.indexOf(idx) > -1);
             });
-        }).catch(() => []);
+        }).catch(e => []);
     },
     dataAttrs: {
         name: 'n', avgVol: 'a2'

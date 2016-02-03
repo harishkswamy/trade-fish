@@ -8,17 +8,20 @@ module.exports = class PulseInstr {
         const lastMonths = (dur) => {
             return new Date(new Date().setMonth(new Date().getMonth() - dur));
         }
+        const dt = new Date();
+        this.pctChgYtd = this.instr.pctChange(new Date(dt.getFullYear(), 0, 1));
         this.pctChgMtd = this.instr.pctChange(new Date(new Date().setDate(0)));
+        this.pctChg1Mo = this.instr.pctChange(lastMonths(1));
         this.pctChg3Mo = this.instr.pctChange(lastMonths(3));
         this.pctChg6Mo = this.instr.pctChange(lastMonths(6));
         this.pctChg12Mo = this.instr.pctChange(lastMonths(12));
-        this.avgPctChg = (4 * this.pctChgMtd + 3 * this.pctChg3Mo + 2 * this.pctChg6Mo + this.pctChg12Mo) / 10;
+        this.avgPctChg = (4 * this.pctChg1Mo + 3 * this.pctChg3Mo + 2 * this.pctChg6Mo + this.pctChg12Mo) / 10;
         this.ma50 = this.instr.movingAvg(50);
         this.ma100 = this.instr.movingAvg(100);
         this.ma200 = this.instr.movingAvg(200);
         this.avgMa = (this.ma50 + this.ma100 + this.ma200) / 3;
     }
-    
+
     get symbol() {
         return this.instr.symbol;
     }
@@ -33,7 +36,9 @@ module.exports = class PulseInstr {
             rank: rank,
             lastDate: Quote.date(this.lastQ),
             lastPrice: Quote.adjClose(this.lastQ),
+            pctChgYtd: this.pctChgYtd,
             pctChgMtd: this.pctChgMtd,
+            pctChg1Mo: this.pctChg1Mo,
             pctChg3Mo: this.pctChg3Mo,
             pctChg6Mo: this.pctChg6Mo,
             pctChg12Mo: this.pctChg12Mo,

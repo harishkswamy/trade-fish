@@ -2,13 +2,15 @@ var PulseInstr = React.createClass({
     render: function() {
         return (
             <tr>
-                <td>{this.props.instr.symbol}</td>
+                <td><a href={`http://stockcharts.com/h-sc/ui?s=${this.props.instr.symbol}`} target="_blank">{this.props.instr.symbol}</a></td>
                 <td className="numeric">{this.props.instr.lastPrice > this.props.instr.avgMa ? this.props.instr.rank : ''}</td>
                 <td>{new Date(this.props.instr.lastDate).toLocaleDateString('en-US')}</td>
                 <td className="numeric">{this.props.instr.lastPrice.toFixed(2)}</td>
                 <td className="numeric">{this.props.instr.avgMa.toFixed(2)}</td>
                 <td className="numeric">{this.props.instr.avgPctChg.toFixed(2)}</td>
+                <td className="numeric">{this.props.instr.pctChgYtd.toFixed(2)}</td>
                 <td className="numeric">{this.props.instr.pctChgMtd.toFixed(2)}</td>
+                <td className="numeric">{this.props.instr.pctChg1Mo.toFixed(2)}</td>
                 <td className="numeric">{this.props.instr.pctChg3Mo.toFixed(2)}</td>
                 <td className="numeric">{this.props.instr.pctChg6Mo.toFixed(2)}</td>
                 <td className="numeric">{this.props.instr.pctChg12Mo.toFixed(2)}</td>
@@ -38,7 +40,9 @@ var Portfolio = React.createClass({
                             <th className="numeric">Last Price</th>
                             <th className="numeric">Avg MA</th>
                             <th className="numeric">Avg % Change</th>
+                            <th className="numeric">% Change YTD</th>
                             <th className="numeric">% Change MTD</th>
+                            <th className="numeric">% Change 1 Mos</th>
                             <th className="numeric">% Change 3 Mos</th>
                             <th className="numeric">% Change 6 Mos</th>
                             <th className="numeric">% Change 12 Mos</th>
@@ -56,15 +60,15 @@ var Portfolio = React.createClass({
 var Pulse = React.createClass({
     loadPortfolios: function() {
         $.ajax({
-        url: this.props.url,
-        dataType: 'json',
-        cache: false,
-        success: function(data) {
-            this.setState({portfolios: data});
-        }.bind(this),
-        error: function(xhr, status, err) {
-            console.error(this.props.url, status, err.toString());
-        }.bind(this)
+            url: this.props.url,
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+                this.setState({portfolios: data});
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error(this.props.url, status, err.toString());
+            }.bind(this)
         });
     },
 
