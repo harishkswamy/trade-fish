@@ -69,7 +69,7 @@ module.exports = class Instr {
             .catch(this.refreshQuotes.bind(this));
     }
 
-    refreshQuotes() {
+    refreshQuotes(force) {
         const saveData = () => {
             return new Promise((resolve, reject) => {
                 _fs.writeFile(this.dataFilePath, Quote.toString(this._quotes), { encoding: 'utf8' }, (err) => {
@@ -79,6 +79,7 @@ module.exports = class Instr {
             });
         };
         const downloadQuotes = (startDate, endDate) => {
+            // console.log('Downloading', this.symbol, startDate, endDate);
             // endDate = beforeMarketOpen(endDate) ? prevDate(endDate) : endDate;
             return Yahoo.quotes(this.symbol, startDate, endDate, [Yahoo.qtAttrs.date, Yahoo.qtAttrs.adjClose]).then(quotes => {
                 if (quotes.length === 0) return this;
@@ -90,7 +91,7 @@ module.exports = class Instr {
         const now = new Date();
 
         if (this._quotes) {
-            return this.lastRefreshed < lastMarketClose() ? 
+            return force || this.lastRefreshed < lastMarketClose() ? 
                 downloadQuotes(nextDate(Quote.date(this.lastQ)), now) : this;
         }
         const startDate = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());

@@ -10,5 +10,9 @@ module.exports = class Portfolio {
     
     init() {
         return Promise.all(this.instrs.map(instr => instr.init())).then(() => this);
-    }    
+    }
+
+    refreshQuotes() {
+        return Promise.all(this.instrs.map(instr => instr.refreshQuotes(true))).then(() => this);
+    }
 };

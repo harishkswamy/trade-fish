@@ -12,11 +12,16 @@ const loadPortfolios = () => JSON.parse(_fs.readFileSync(__dirname + '/../../por
 const buildPortfolios = (portfolios) => portfolios.map(pf => new Portfolio(pf).init());
 const buildPulsePortfolios = (portfolios) => Promise.all(portfolios.map(pfp => pfp.then(pf => new PulsePortfolio(pf))));
 
-const portfolios = Promise.resolve()
+let portfolios = Promise.resolve()
     .then(loadPortfolios)
     .then(buildPortfolios)
     .then(buildPulsePortfolios);
 
 module.exports.get = function() {
     return portfolios;
+}
+
+module.exports.refresh = function() {
+    return portfolios
+        .then(pfolios => portfolios = Promise.all(pfolios.map(pfolio => pfolio.refreshQuotes())));
 }

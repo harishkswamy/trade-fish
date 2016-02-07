@@ -23,6 +23,15 @@ app.get('/api/pulse', function (req, res) {
     PulseBuilder.get().then(writeResponse);
 });
 
+app.get('/api/pulse/refresh', function (req, res) {
+    const writeResponse = portfolios => {
+        res.json(portfolios.map(p => p.state()));
+    };
+
+    res.setHeader('Cache-Control', 'no-cache');
+    PulseBuilder.refresh().then(writeResponse);
+});
+
 // app.get('/api/comments', function (req, res) {
 //     fs.readFile(COMMENTS_FILE, function (err, data) {
 //         if (err) {

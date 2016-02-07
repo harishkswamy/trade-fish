@@ -71,6 +71,20 @@ var Pulse = React.createClass({
             }.bind(this)
         });
     },
+    
+    refreshPortfolios: function() {
+        $.ajax({
+            url: this.props.url + '/refresh',
+            dataType: 'json',
+            cache: false,
+            success: function(data) {
+                this.setState({portfolios: data});
+            }.bind(this),
+            error: function(xhr, status, err) {
+                console.error(this.props.url, status, err.toString());
+            }.bind(this)
+        });
+    },
 
     componentDidMount: function() {
         this.loadPortfolios();
@@ -78,6 +92,11 @@ var Pulse = React.createClass({
 
     getInitialState: function() {
         return {portfolios: [{instrs: []}]};
+    },
+    
+    handleClick: function(e) {
+        e.preventDefault();
+        this.refreshPortfolios();
     },
 
     render: function() {
@@ -90,6 +109,13 @@ var Pulse = React.createClass({
         });
         return (
             <div>
+                <div className="row">
+                    <div className="col-md-2 col-md-offset-10">
+                        <button type="button" className="btn btn-primary" onClick={this.handleClick}>
+                            <i className="glyphicon glyphicon-refresh" aria-hidden="true"></i> Refresh
+                        </button>
+                    </div>
+                </div>
                 {pfolios}
             </div>
         );
