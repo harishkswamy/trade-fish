@@ -15,7 +15,8 @@ const buildPulsePortfolios = (portfolios) => Promise.all(portfolios.map(pfp => p
 let portfolios = Promise.resolve()
     .then(loadPortfolios)
     .then(buildPortfolios)
-    .then(buildPulsePortfolios);
+    .then(buildPulsePortfolios)
+    .catch((e) => console.error(e));
 
 module.exports.get = function() {
     return portfolios;

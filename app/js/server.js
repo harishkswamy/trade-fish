@@ -14,13 +14,20 @@ app.use('/', express.static(path.join(__dirname, '/../public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+const writeError = (res, e) => {
+    console.error(e.stack ? e.stack : e.message);
+    res.write(e.message);
+};
+
 app.get('/api/pulse', function (req, res) {
     const writeResponse = portfolios => {
         res.json(portfolios.map(p => p.state()));
     };
 
     res.setHeader('Cache-Control', 'no-cache');
-    PulseBuilder.get().then(writeResponse);
+    PulseBuilder.get()
+        .then(writeResponse)
+        .catch(writeError.bind(null, res));
 });
 
 app.get('/api/pulse/refresh', function (req, res) {
@@ -29,7 +36,9 @@ app.get('/api/pulse/refresh', function (req, res) {
     };
 
     res.setHeader('Cache-Control', 'no-cache');
-    PulseBuilder.refresh().then(writeResponse);
+    PulseBuilder.refresh()
+        .then(writeResponse)
+        .catch(writeError.bind(null, res));
 });
 
 // app.get('/api/comments', function (req, res) {
