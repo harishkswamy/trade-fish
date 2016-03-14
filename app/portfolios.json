@@ -40,8 +40,8 @@
         "symbols": ["EDV","BIV","VCIT","VGIT","BLV","VCLT","VGLT","VMBS","BSV","VCSH","VGSH","VTIP","BND","VTEB"]
     },
     {
-        "name": "Chase HSA",
-        "symbols": ["EAGMX","ONUAX","ADFIX","BMOAX","PTTDX","PFILX","PRRDX","MHCAX","PCBLX","TPINX","PSBLX","PCWSX","HLEIX","PMBSX","OLGAX","ICAUX","TGVAX","RYPRX","MDIIX","OSGIX","SGQAX","MDSKX","CSGEX","PAREX"]
+        "name": "Country ETFs",
+        "symbols": ["EPI","FXI","EWA","EWC","EWD","EWG","EWH","EWI","EWJ","EWK","EWL","EWM","EWN","EWO","EWP","EWQ","EWS","EWU","EWW","EWT","EWY","EWZ","EZA","IWD","IWN"]
     },
     {
         "name": "Schwab US Equity",

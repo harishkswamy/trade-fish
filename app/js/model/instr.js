@@ -79,9 +79,10 @@ module.exports = class Instr {
             });
         };
         const downloadQuotes = (startDate, endDate) => {
-            // console.log('Downloading', this.symbol, startDate, endDate);
+            console.log('Downloading', this.symbol, startDate, endDate);
             // endDate = beforeMarketOpen(endDate) ? prevDate(endDate) : endDate;
             return Yahoo.quotes(this.symbol, startDate, endDate, [Yahoo.qtAttrs.date, Yahoo.qtAttrs.adjClose]).then(quotes => {
+                console.log('Downloaded', this.symbol, startDate, endDate);
                 if (quotes.length === 0) return this;
                 this.quotes = this._quotes ? quotes.concat(this._quotes) : quotes;
                 return saveData();
