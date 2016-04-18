@@ -41,6 +41,11 @@ app.get('/api/pulse/refresh', function (req, res) {
         .catch(writeError.bind(null, res));
 });
 
+app.get('/data', function (req, res) {
+    res.setHeader('Cache-Control', 'no-cache');
+    res.json(JSON.parse(fs.readFileSync(`${__dirname}/../data/${req.param('symbol')}`).toString()));
+});
+
 app.listen(app.get('port'), function () {
     console.log('Server started: http://localhost:' + app.get('port') + '/');
 });

@@ -1,7 +1,11 @@
 [
     {
+        "name": "My Portfolio",
+        "symbols": ["VNJUX", "VWALX", "HYMB"]
+    },
+    {
         "name": "Ivy - Market View",
-        "symbols": ["SPY","DIA","QQQ","IWM","BND","DBC","VEU","VTI","VNQ","RSP","HYMB"]
+        "symbols": ["SPY","DIA","QQQ","IWM","BND","DBC","VEU","VTI","VNQ","RSP","VTEB"]
     },
     {
         "name": "Ivy - US Market Cap",
