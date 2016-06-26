@@ -25,8 +25,21 @@
 
 // x('sd');
 
-let sym = 'EWA,EWC,EWD,EWG,EWH,EWI,EWJ,EWK,EWL,EWM,EWN,EWO,EWP,EWQ,EWS,EWU,EWW,EWT,EWY,EWZ,EZA,IWD,IWN';
-let str = sym.split(',').reduce((str, s) => {
-    return str + `"${s}",`;
-}, '');
-console.log(str);
+// let sym = 'EWA,EWC,EWD,EWG,EWH,EWI,EWJ,EWK,EWL,EWM,EWN,EWO,EWP,EWQ,EWS,EWU,EWW,EWT,EWY,EWZ,EZA,IWD,IWN';
+// let str = sym.split(',').reduce((str, s) => {
+//     return str + `"${s}",`;
+// }, '');
+// console.log(str);
+
+var p = new Promise((resolve, reject) => {
+    setTimeout(resolve, 3000)
+});
+
+p.then(() => {
+    console.log('this is 1');
+});
+
+p.then(() => {
+    console.log('this is 2');
+});
+console.log('done');

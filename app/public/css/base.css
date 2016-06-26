@@ -61,6 +61,10 @@ ul {
   padding-left: 30px;
 }
 
+tr.highlight {
+  background-color: yellowgreen;
+}
+
 .numeric {
     text-align: right;
 }

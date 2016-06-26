@@ -31,11 +31,12 @@ module.exports = class PulseInstr {
     }
     
     state(rank) {
+        var lastPrice = Quote.adjClose(this.lastQ);
         return {
             symbol: this.symbol,
             rank: rank,
             lastDate: Quote.date(this.lastQ),
-            lastPrice: Quote.adjClose(this.lastQ),
+            lastPrice: lastPrice,
             pctChgYtd: this.pctChgYtd,
             pctChgMtd: this.pctChgMtd,
             pctChg1Mo: this.pctChg1Mo,
@@ -46,7 +47,8 @@ module.exports = class PulseInstr {
             ma50: this.ma50,
             ma100: this.ma100,
             ma200: this.ma200,
-            avgMa: this.avgMa
+            avgMa: this.avgMa,
+            highlight: (Math.abs(lastPrice - this.avgMa) / this.avgMa) <= 0.01 ? 'highlight' : ''
         };
     }
 }

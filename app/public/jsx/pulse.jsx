@@ -1,7 +1,7 @@
 var PulseInstr = React.createClass({
     render: function() {
         return (
-            <tr>
+            <tr className={this.props.instr.highlight}>
                 <td><a href={`http://stockcharts.com/h-sc/ui?s=${this.props.instr.symbol}`} target="_blank">{this.props.instr.symbol}</a></td>
                 <td className="numeric">{this.props.instr.lastPrice > this.props.instr.avgMa ? this.props.instr.rank : ''}</td>
                 <td>{new Date(this.props.instr.lastDate).toLocaleDateString('en-US')}</td>
@@ -102,8 +102,8 @@ var Pulse = React.createClass({
     render: function() {
         var pfolios = this.state.portfolios.map(function(portfolio) {
             return (
-                <div className="pulse" key={portfolio.name}>
-                    <Portfolio portfolio={portfolio} />
+                <div className="pulse">
+                    <Portfolio portfolio={portfolio} key={portfolio.name} />
                 </div>
             );
         });
@@ -123,6 +123,6 @@ var Pulse = React.createClass({
 });
 
 ReactDOM.render(
-  <Pulse url="/api/pulse" />,
-  document.getElementById('content')
+    <Pulse url="/api/pulse" />,
+    document.getElementById('content')
 );

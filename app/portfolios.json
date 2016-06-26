@@ -1,7 +1,11 @@
 [
     {
         "name": "My Portfolio",
-        "symbols": ["VNJUX", "VWALX", "HYMB"]
+        "symbols": ["VNJUX", "VWALX", "HYMB", "BLV"]
+    },
+    {
+        "name": "Income Portfolio",
+        "symbols": ["AMLP", "IMLP", "PFF", "PFXF", "PGX", "PCEF", "NMO", "YYY", "VTEB", "SHYG", "VWEHX", "OSTIX"]
     },
     {
         "name": "Ivy - Market View",

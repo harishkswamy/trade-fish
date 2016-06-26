@@ -1,7 +1,7 @@
 'use strict';
 
 const _fs = require('fs');
-const Yahoo = require('./yahoo.js');
+const Yahoo = require('../data/yahoo.js');
 const Quote = require('./quote.js');
 
 const appPath = __dirname + '/../../';
@@ -64,9 +64,9 @@ module.exports = class Instr {
                 });
             });
         };
-        return readQuotes()
-            .then(this.refreshQuotes.bind(this))
-            .catch(this.refreshQuotes.bind(this));
+        return readQuotes();
+            // .then(this.refreshQuotes.bind(this))
+            // .catch(this.refreshQuotes.bind(this));
     }
 
     refreshQuotes(force) {
@@ -99,7 +99,7 @@ module.exports = class Instr {
             return force || this.lastRefreshed < lastMarketClose() ? 
                 downloadQuotes(nextDate(Quote.date(this.lastQ)), now) : this;
         }
-        const startDate = new Date(now.getFullYear() - 1, now.getMonth(), now.getDate());
+        const startDate = new Date(now.getFullYear() - 5, now.getMonth(), now.getDate());
 
         return downloadQuotes(startDate, now);
     }
