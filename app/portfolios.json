@@ -48,6 +48,10 @@
         "symbols": ["EDV","BIV","VCIT","VGIT","BLV","VCLT","VGLT","VMBS","BSV","VCSH","VGSH","VTIP","BND","VTEB"]
     },
     {
+        "name": "Vanguard International",
+        "symbols": ["VWOB","VEU","VSS","VEA","VWO","VGK","VPL","VNQI","VIGI","VYMI","BNDX","VXUS","VT"]
+    },
+    {
         "name": "Country ETFs",
         "symbols": ["EPI","FXI","EWA","EWC","EWD","EWG","EWH","EWI","EWJ","EWK","EWL","EWM","EWN","EWO","EWP","EWQ","EWS","EWU","EWW","EWT","EWY","EWZ","EZA","IWD","IWN"]
     },

@@ -58,8 +58,7 @@ module.exports = class Instr {
         const readQuotes = () => {
             return new Promise((resolve, reject) => {
                 _fs.readFile(this.dataFilePath, { encoding: 'utf8' }, (err, data) => {
-                    if (err) return reject(err);
-                    this.quotes = Quote.parse(data);
+                    this.quotes = err ? [] : Quote.parse(data);
                     resolve();
                 });
             });
@@ -95,7 +94,7 @@ module.exports = class Instr {
 
         const now = new Date();
 
-        if (this._quotes) {
+        if (this._quotes && this._quotes.length > 0) {
             return force || this.lastRefreshed < lastMarketClose() ? 
                 downloadQuotes(nextDate(Quote.date(this.lastQ)), now) : this;
         }
