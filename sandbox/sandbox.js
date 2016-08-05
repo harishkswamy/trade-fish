@@ -3,7 +3,8 @@
  */
 'use strict';
 
-// let _fs = require('fs');
+let _fs = require('fs');
+let _ = require('underscore');
 // let Yahoo = require('./yahoo.js');
 // let d1 = new Date(2015, 11, 28);
 // let d2 = new Date(2015, 11, 29);
@@ -31,15 +32,8 @@
 // }, '');
 // console.log(str);
 
-var p = new Promise((resolve, reject) => {
-    setTimeout(resolve, 3000)
-});
-
-p.then(() => {
-    console.log('this is 1');
-});
-
-p.then(() => {
-    console.log('this is 2');
-});
-console.log('done');
+var symbols = [];
+Promise.all(JSON.parse(_fs.readFileSync(__dirname + '/portfolios.json', 'utf8')).map((pfolio) => {
+    symbols.push(pfolio.symbols);
+}));
+console.log(JSON.stringify(_.uniq(_.flatten(symbols)).sort()));
