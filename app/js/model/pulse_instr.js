@@ -20,6 +20,7 @@ module.exports = class PulseInstr {
         this.ma100 = this.instr.movingAvg(100);
         this.ma200 = this.instr.movingAvg(200);
         this.avgMa = (this.ma50 + this.ma100 + this.ma200) / 3;
+        this.rsi2 = this.instr.rsi(2);
     }
 
     get symbol() {
@@ -37,6 +38,7 @@ module.exports = class PulseInstr {
             rank: rank,
             lastDate: Quote.date(this.lastQ),
             lastPrice: lastPrice,
+            rsi2: this.rsi2,
             pctChgYtd: this.pctChgYtd,
             pctChgMtd: this.pctChgMtd,
             pctChg1Mo: this.pctChg1Mo,
@@ -48,7 +50,8 @@ module.exports = class PulseInstr {
             ma100: this.ma100,
             ma200: this.ma200,
             avgMa: this.avgMa,
-            highlight: (Math.abs(lastPrice - this.avgMa) / this.avgMa) <= 0.01 ? 'highlight' : ''
+            avgMaH: (Math.abs(lastPrice - this.avgMa) / this.avgMa) <= 0.01 ? 'numeric highlight' : 'numeric',
+            rsiH: this.rsi2 < 10 ? 'numeric highlight' : 'numeric'
         };
     }
 }

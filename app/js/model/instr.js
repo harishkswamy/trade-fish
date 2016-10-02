@@ -125,4 +125,36 @@ module.exports = class Instr {
 
         return this._movAvg[key] = this.quotes.reduce((sum, q) => cntr-- > 0 ? sum + Quote.adjClose(q) : sum, 0) / period;
     }
+
+    rsi(period) {
+        let pClose, ctr = 1, avgUp = 0, avgDn = 0, len = this.quotes.length;
+
+        for (let i = (len > 250 ? 250 : len); i-- > 0;) {
+            let close = Quote.adjClose(this.quotes[i]), up = 0, dn = 0;
+
+            if (pClose) {
+                if (close > pClose) {
+                    up = (close - pClose);
+                } else {
+                    dn = (pClose - close);
+                }
+            }
+            pClose = close;
+
+            if (ctr > period) {
+                avgUp = (avgUp * (period - 1) + up) / period;
+                avgDn = (avgDn * (period - 1) + dn) / period;
+
+            } else {
+                avgUp += up;
+                avgDn += dn;
+
+                if (ctr++ === period) {
+                    avgUp /= period;
+                    avgDn /= period;
+                }
+            }
+        }
+        return avgUp == 0 ? 0 : (avgDn == 0 ? 100 : (100 - 100 / (1 + avgUp / avgDn)));
+    }
 };

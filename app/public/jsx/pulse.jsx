@@ -1,12 +1,13 @@
 var PulseInstr = React.createClass({
     render: function() {
         return (
-            <tr className={this.props.instr.highlight}>
+            <tr>
                 <td><a href={`http://stockcharts.com/h-sc/ui?s=${this.props.instr.symbol}`} target="_blank">{this.props.instr.symbol}</a></td>
                 <td className="numeric">{this.props.instr.lastPrice > this.props.instr.avgMa ? this.props.instr.rank : ''}</td>
                 <td>{new Date(this.props.instr.lastDate).toLocaleDateString('en-US')}</td>
                 <td className="numeric">{this.props.instr.lastPrice.toFixed(2)}</td>
-                <td className="numeric">{this.props.instr.avgMa.toFixed(2)}</td>
+                <td className={this.props.instr.rsiH}>{this.props.instr.rsi2.toFixed(2)}</td>
+                <td className={this.props.instr.avgMaH}>{this.props.instr.avgMa.toFixed(2)}</td>
                 <td className="numeric">{this.props.instr.avgPctChg.toFixed(2)}</td>
                 <td className="numeric">{this.props.instr.pctChgYtd.toFixed(2)}</td>
                 <td className="numeric">{this.props.instr.pctChgMtd.toFixed(2)}</td>
@@ -38,6 +39,7 @@ var Portfolio = React.createClass({
                             <th className="numeric">Rank</th>
                             <th>Last Date</th>
                             <th className="numeric">Last Price</th>
+                            <th className="numeric">RSI2</th>
                             <th className="numeric">Avg MA</th>
                             <th className="numeric">Avg % Change</th>
                             <th className="numeric">% Change YTD</th>

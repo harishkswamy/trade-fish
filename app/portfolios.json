@@ -1,15 +1,15 @@
 [
     {
         "name": "My Portfolio",
-        "symbols": ["VNJUX", "VWALX", "HYMB", "VWO", "VHT", "VYM"]
+        "symbols": ["VNJUX", "VWALX", "VWEHX","HYMB", "VWO", "VHT", "VYM"]
     },
     {
         "name": "Ivy - Market View",
-        "symbols": ["SPY","DIA","QQQ","IWM","BND","DBC","VEA","VWO","VTI","VNQ","RSP","VTEB","VWOB","BNDX"]
+        "symbols": ["BND","DBC","VEA","VWO","VTI","VNQ","VNQI","VWOB","BNDX","GLD"]
     },
     {
         "name": "Ivy - US Market Cap",
-        "symbols": ["VTI","VO","VB","IWC"]
+        "symbols": ["MGC", "VV","VO","VB","IWC"]
     },
     {
         "name": "Ivy - Foreign",

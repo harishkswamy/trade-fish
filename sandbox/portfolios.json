@@ -5,7 +5,7 @@
     },
     {
         "name": "Ivy - Market View",
-        "symbols": ["SPY","DIA","QQQ","IWM","BND","DBC","VEA","VWO","VTI","VNQ","RSP","VTEB","VWOB","BNDX"]
+        "symbols": ["BND","DBC","VEA","VWO","VTI","VNQ","VWOB","BNDX","GLD"]
     },
     {
         "name": "Ivy - US Market Cap",

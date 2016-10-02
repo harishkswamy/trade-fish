@@ -578,14 +578,14 @@
 
                     var macdData = techan.indicator.macd()(data);
                     macdScale.domain(techan.scale.plot.macd(macdData).domain());
-                    var rsiData = techan.indicator.rsi()(data);
+                    var rsiData = techan.indicator.rsi().period(3)(data);
                     rsiScale.domain(techan.scale.plot.rsi(rsiData).domain());
 
                     svg.select("g.candlestick").datum(data).call(candlestick);
                     svg.select("g.close.annotation").datum([data[data.length - 1]]).call(closeAnnotation);
                     svg.select("g.volume").datum(data).call(volume);
-                    svg.select("g.sma.ma-0").datum(techan.indicator.sma().period(10)(data)).call(sma0);
-                    svg.select("g.sma.ma-1").datum(techan.indicator.sma().period(20)(data)).call(sma1);
+                    svg.select("g.sma.ma-0").datum(techan.indicator.ema().period(6)(data)).call(sma0);
+                    svg.select("g.sma.ma-1").datum(techan.indicator.ema().period(10)(data)).call(sma1);
                     svg.select("g.ema.ma-2").datum(techan.indicator.sma().period(50)(data)).call(ema2);
                     svg.select("g.ema.ma-3").datum(techan.indicator.sma().period(200)(data)).call(ema3);
                     svg.select("g.macd .indicator-plot").datum(macdData).call(macd);
